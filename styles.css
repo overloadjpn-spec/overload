@@ -82,7 +82,7 @@ img{max-width:100%;display:block;}
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(30,111,181,0.12);
 }
-.nav-brand{display:flex;align-items:center;gap:10px;font-family:'Zen Kaku Gothic New';font-weight:900;font-size:1.15rem;color:var(--sky-deep);text-decoration:none;}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:'Zen Kaku Gothic New';font-weight:900;font-size:1.15rem;color:var(--ink);text-decoration:none;}
 .nav-brand .dot{width:12px;height:12px;border-radius:50%;background:var(--sky-mid);box-shadow:0 0 0 4px rgba(62,143,203,0.2);}
 
 /* hamburger button (mobile only) */
@@ -100,7 +100,7 @@ img{max-width:100%;display:block;}
 .nav-links{display:none;gap:26px;font-size:0.92rem;font-weight:500;}
 .nav-links a{text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;transition:border-color .2s;}
 .nav-links a:hover{border-color:var(--sky-mid);}
-.nav-links a.current{border-color:var(--sky-deep);color:var(--sky-deep);font-weight:700;}
+.nav-links a.current{border-color:var(--ink);color:var(--ink);font-weight:700;}
 
 /* mobile dropdown: shown only when toggled open */
 @media(max-width:759px){
@@ -263,16 +263,96 @@ img{max-width:100%;display:block;}
 
 /* ---------- SECTION GENERIC ---------- */
 section{padding:90px 6vw;max-width:1180px;margin:0 auto;}
+
+/* ---------- TODAY (デカ文字と同じ色でツートンにする帯／文字で制圧・配色は水色系に統一) ---------- */
+#today{
+  position:relative;
+  max-width:none;
+  padding:0;
+  background:var(--ink);
+  overflow:hidden;
+}
+/* 幾何学：うっすら光るグリッドのみ。にじみグローは使わない */
+#today::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(127,184,224,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(127,184,224,0.12) 1px, transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 90% at 50% 30%, #000 0%, transparent 75%);
+  mask-image:radial-gradient(ellipse 70% 90% at 50% 30%, #000 0%, transparent 75%);
+  pointer-events:none;
+}
+/* サイバネティック：HUD風の同心円リング（水色一色） */
+.today-ring{
+  position:absolute;
+  width:320px;height:320px;
+  border:1px solid rgba(127,184,224,0.25);
+  border-radius:50%;
+  right:-100px;top:-110px;
+  pointer-events:none;
+}
+.today-ring::before{
+  content:"";
+  position:absolute;inset:36px;
+  border:1px solid rgba(127,184,224,0.16);
+  border-radius:50%;
+}
+.today-ring::after{
+  content:"";
+  position:absolute;top:50%;left:-14px;
+  width:14px;height:1px;
+  background:rgba(127,184,224,0.4);
+}
+.today-ring-sm{
+  position:absolute;
+  width:120px;height:120px;
+  border:1px solid rgba(127,184,224,0.18);
+  border-radius:50%;
+  left:6vw;bottom:-50px;
+  pointer-events:none;
+}
+@media(max-width:820px){.today-ring,.today-ring-sm{display:none;}}
+#today .today-inner{
+  position:relative;z-index:2;
+  max-width:1180px;margin:0 auto;
+  padding:90px 6vw;
+}
+/* 文字で制圧：見出しを大きく強く */
+.today-tag{
+  display:block;
+  font-family:'Courier New',Consolas,monospace;
+  font-size:0.72rem;
+  letter-spacing:0.15em;
+  color:var(--sky-pale);
+  margin-bottom:18px;
+}
+#today .eyebrow{background:rgba(255,255,255,0.1);color:#fff;}
+#today .section-head h2{
+  color:#fff;
+  font-size:clamp(2.6rem,6.5vw,4.4rem);
+  letter-spacing:-0.01em;
+  line-height:1.05;
+}
+#today .section-head p{color:rgba(237,235,230,0.72);}
+#today .section-head p a{color:#fff;}
+#today .schedule-item{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.14);}
+#today .schedule-date{color:var(--sky-pale);}
+#today .schedule-title{color:#EDEBE6;}
+#today .schedule-title a{color:#fff;}
+#today .schedule-empty{color:rgba(237,235,230,0.65);}
+#today .schedule-empty a{color:#fff;}
 .eyebrow{
   display:inline-block;
-  color:var(--sky-deep);
+  color:var(--ink);
   background:var(--sky-light);
   padding:5px 14px;border-radius:999px;
   font-size:0.78rem;font-weight:700;letter-spacing:0.08em;
   margin-bottom:14px;
 }
 .section-head{max-width:640px;margin-bottom:48px;}
-.section-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin:0 0 14px;color:var(--sky-deep);}
+.section-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin:0 0 14px;color:var(--ink);}
 .section-head p{color:var(--ink-soft);line-height:1.9;font-size:0.98rem;margin:0;}
 
 /* ---------- ABOUT ---------- */
@@ -336,7 +416,7 @@ section{padding:90px 6vw;max-width:1180px;margin:0 auto;}
 }
 .link-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(21,90,150,0.12);border-color:var(--sky-pale);}
 .link-card .icon{font-size:1.6rem;margin-bottom:12px;}
-.link-card h3{margin:0 0 8px;font-size:1.1rem;color:var(--sky-deep);}
+.link-card h3{margin:0 0 8px;font-size:1.1rem;color:var(--ink);}
 .link-card p{margin:0;color:var(--ink-soft);font-size:0.88rem;line-height:1.7;}
 .link-card .go{display:inline-block;margin-top:14px;font-size:0.82rem;font-weight:700;color:var(--sky-mid);}
 
@@ -447,7 +527,7 @@ section{padding:90px 6vw;max-width:1180px;margin:0 auto;}
 
 /* ---------- FOOTER ---------- */
 footer{
-  background:var(--sky-deep);
+  background:var(--ink);
   color:rgba(255,255,255,0.9);
   padding:50px 6vw 30px;
   text-align:center;

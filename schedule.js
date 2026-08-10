@@ -54,6 +54,8 @@ fetch('schedule.csv')
     const todayList = document.getElementById('todayList');
     if (todayList) {
       const todayStr = new Date().toLocaleDateString('sv-SE');
+      const todayTag = document.getElementById('todayTag');
+      if (todayTag) todayTag.textContent = `TODAY — ${todayStr.replace(/-/g, '.')}`;
       const todayItems = items.filter(i => i.date === todayStr);
       todayList.innerHTML = todayItems.length
         ? todayItems.map(scheduleItemHTML).join('')

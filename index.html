@@ -42,12 +42,17 @@
 </header>
 
 <section id="today">
-  <div class="section-head">
-    <span class="eyebrow">TODAY</span>
-    <h2>本日の予定</h2>
-    <p>本日分の予定のみを表示しています。全ての予定は<a href="schedule.html">スケジュールページ</a>でご確認ください。</p>
+  <div class="today-ring" aria-hidden="true"></div>
+  <div class="today-ring-sm" aria-hidden="true"></div>
+  <div class="today-inner">
+    <div class="section-head">
+      <span class="today-tag" id="todayTag" aria-hidden="true"></span>
+      <span class="eyebrow">TODAY</span>
+      <h2>本日の予定</h2>
+      <p>本日分の予定のみを表示しています。全ての予定は<a href="schedule.html">スケジュールページ</a>でご確認ください。</p>
+    </div>
+    <div class="schedule-list" id="todayList"></div>
   </div>
-  <div class="schedule-list" id="todayList"></div>
 </section>
 
 <section id="quicklinks">
