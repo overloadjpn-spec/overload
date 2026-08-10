@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>グループについて ｜ 僕青ふぁんくらぶ</title>
+<title>グループについて ｜ Overload</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,11 +13,15 @@
 <body>
 
 <nav class="nav">
-  <a class="nav-brand" href="index.html"><span class="dot"></span>僕青ふぁんくらぶ</a>
-  <div class="nav-links">
+  <a class="nav-brand" href="index.html"><span class="dot"></span>Overload</a>
+  <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
     <a href="index.html">トップページ</a>
     <a href="about.html" class="current">グループについて</a>
     <a href="members.html">メンバー</a>
+    <a href="schedule.html">スケジュール</a>
     <a href="contact.html">お問い合わせ</a>
   </div>
 </nav>
@@ -90,5 +94,6 @@
   <p class="fine">Fan-made site with love for 僕青 🌤️</p>
 </footer>
 
+<script src="nav.js"></script>
 </body>
 </html>
