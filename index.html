@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>僕が見たかった青空 非公式ファンサイト ｜ 僕青ふぁんくらぶ</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky-deep:#1E6FB5;
+    --sky-mid:#4FA8E0;
+    --sky-light:#BEE3FA;
+    --cloud:#FDFEFF;
+    --sun:#FFD666;
+    --cotton:#FF8FAB;
+    --ink:#193049;
+    --ink-soft:#4d6580;
+    --radius-lg:28px;
+    --radius-md:18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Noto Sans JP',sans-serif;
+    color:var(--ink);
+    background:var(--cloud);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Zen Maru Gothic',sans-serif;
+    font-weight:900;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  :focus-visible{outline:3px solid var(--sun);outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 6vw;
+    background:rgba(253,254,255,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(30,111,181,0.12);
+  }
+  .nav-brand{display:flex;align-items:center;gap:10px;font-family:'Zen Maru Gothic';font-weight:900;font-size:1.15rem;color:var(--sky-deep);}
+  .nav-brand .dot{width:12px;height:12px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 4px rgba(255,214,102,0.3);}
+  .nav-links{display:flex;gap:26px;font-size:0.92rem;font-weight:500;}
+  .nav-links a{text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;transition:border-color .2s;}
+  .nav-links a:hover{border-color:var(--cotton);}
+  .nav-links{display:none;}
+  @media(min-width:760px){.nav-links{display:flex;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    padding:120px 6vw 100px;
+    background:linear-gradient(180deg,var(--sky-deep) 0%, var(--sky-mid) 45%, var(--sky-light) 100%);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;left:0;right:0;bottom:-2px;height:120px;
+    background:linear-gradient(180deg, rgba(190,227,250,0) 0%, var(--cloud) 100%);
+    pointer-events:none;
+  }
+  .cloud{
+    position:absolute;
+    background:#fff;
+    border-radius:100px;
+    opacity:0.85;
+    filter:blur(0.3px);
+  }
+  .cloud::before,.cloud::after{
+    content:"";
+    position:absolute;
+    background:#fff;
+    border-radius:50%;
+  }
+  .c1{width:180px;height:56px;top:14%;left:-10%;animation:drift 46s linear infinite;}
+  .c1::before{width:90px;height:90px;top:-45px;left:20px;}
+  .c1::after{width:70px;height:70px;top:-32px;left:90px;}
+  .c2{width:130px;height:42px;top:30%;left:60%;animation:drift 60s linear infinite;animation-delay:-10s;}
+  .c2::before{width:64px;height:64px;top:-30px;left:14px;}
+  .c2::after{width:50px;height:50px;top:-22px;left:66px;}
+  .c3{width:220px;height:64px;top:60%;left:-20%;animation:drift 70s linear infinite;animation-delay:-25s;opacity:0.65;}
+  .c3::before{width:100px;height:100px;top:-50px;left:30px;}
+  .c3::after{width:80px;height:80px;top:-36px;left:120px;}
+  .c4{width:150px;height:46px;top:75%;left:70%;animation:drift 54s linear infinite;animation-delay:-5s;opacity:0.7;}
+  .c4::before{width:70px;height:70px;top:-34px;left:16px;}
+  .c4::after{width:56px;height:56px;top:-24px;left:76px;}
+  @keyframes drift{
+    from{transform:translateX(0);}
+    to{transform:translateX(140vw);}
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.22);
+    border:1px solid rgba(255,255,255,0.5);
+    color:#fff;
+    padding:8px 18px;border-radius:999px;
+    font-size:0.82rem;font-weight:700;letter-spacing:0.05em;
+    margin-bottom:26px;
+    position:relative;z-index:2;
+  }
+  .hero h1{
+    position:relative;z-index:2;
+    color:#fff;
+    font-size:clamp(2.4rem,7vw,5.2rem);
+    line-height:1.15;
+    margin:0 0 6px;
+    text-shadow:0 6px 30px rgba(15,60,110,0.35);
+  }
+  .hero .kana{
+    position:relative;z-index:2;
+    color:rgba(255,255,255,0.85);
+    font-size:1rem;
+    letter-spacing:0.3em;
+    margin-bottom:22px;
+  }
+  .hero p.tagline{
+    position:relative;z-index:2;
+    color:#fff;
+    max-width:620px;
+    font-size:1.05rem;
+    line-height:1.9;
+    margin:0 auto 34px;
+    text-shadow:0 2px 14px rgba(15,60,110,0.3);
+  }
+  .hero-stats{
+    position:relative;z-index:2;
+    display:flex;flex-wrap:wrap;gap:14px;justify-content:center;
+  }
+  .stat-chip{
+    background:rgba(255,255,255,0.16);
+    border:1px solid rgba(255,255,255,0.4);
+    border-radius:16px;
+    padding:14px 22px;
+    color:#fff;
+    min-width:120px;
+  }
+  .stat-chip b{display:block;font-family:'Zen Maru Gothic';font-size:1.5rem;}
+  .stat-chip span{font-size:0.78rem;opacity:0.85;}
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:90px 6vw;max-width:1180px;margin:0 auto;}
+  .eyebrow{
+    display:inline-block;
+    color:var(--sky-deep);
+    background:var(--sky-light);
+    padding:5px 14px;border-radius:999px;
+    font-size:0.78rem;font-weight:700;letter-spacing:0.08em;
+    margin-bottom:14px;
+  }
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin:0 0 14px;color:var(--sky-deep);}
+  .section-head p{color:var(--ink-soft);line-height:1.9;font-size:0.98rem;margin:0;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr;gap:36px;}
+  @media(min-width:860px){.about-grid{grid-template-columns:1.1fr 0.9fr;align-items:center;}}
+  .about-copy p{line-height:2;color:var(--ink-soft);margin:0 0 16px;font-size:0.98rem;}
+  .about-copy strong{color:var(--sky-deep);}
+  .sky-card{
+    background:linear-gradient(160deg,var(--sky-mid),var(--sky-deep));
+    border-radius:var(--radius-lg);
+    padding:34px;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  .sky-card h3{margin:0 0 18px;font-size:1.25rem;}
+  .sky-card ul{margin:0;padding:0;list-style:none;}
+  .sky-card li{
+    display:flex;justify-content:space-between;gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,0.22);
+    font-size:0.92rem;
+  }
+  .sky-card li:last-child{border-bottom:none;}
+  .sky-card li span:first-child{opacity:0.75;}
+  .sky-card li span:last-child{font-weight:700;text-align:right;}
+
+  /* ---------- GROUPS (青空組/雲組) ---------- */
+  .team-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media(min-width:700px){.team-grid{grid-template-columns:1fr 1fr;}}
+  .team-card{
+    border-radius:var(--radius-lg);
+    padding:32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .team-card.sora{background:linear-gradient(150deg,#fff7dd,#ffe7a8);}
+  .team-card.kumo{background:linear-gradient(150deg,#eef6ff,#dbeeff);}
+  .team-card h3{margin:0 0 10px;font-size:1.4rem;color:var(--sky-deep);}
+  .team-card p{color:var(--ink-soft);line-height:1.85;margin:0;font-size:0.94rem;}
+  .team-badge{
+    display:inline-block;font-size:0.72rem;font-weight:700;
+    background:rgba(30,111,181,0.1);color:var(--sky-deep);
+    padding:4px 12px;border-radius:999px;margin-bottom:12px;
+  }
+
+  /* ---------- MEMBERS ---------- */
+  .filter-bar{
+    display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;
+  }
+  .filter-btn{
+    border:1.5px solid var(--sky-light);
+    background:#fff;color:var(--sky-deep);
+    padding:8px 16px;border-radius:999px;
+    font-size:0.85rem;font-weight:700;cursor:pointer;
+    font-family:inherit;
+    transition:all .2s;
+  }
+  .filter-btn:hover,.filter-btn.active{
+    background:var(--sky-deep);border-color:var(--sky-deep);color:#fff;
+  }
+  .member-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:18px;
+  }
+  .member-card{
+    background:#fff;
+    border-radius:var(--radius-md);
+    padding:18px 14px 20px;
+    text-align:center;
+    box-shadow:0 6px 20px rgba(25,48,73,0.06);
+    border:1px solid rgba(30,111,181,0.08);
+    transition:transform .25s, box-shadow .25s;
+    cursor:default;
+  }
+  .member-card:hover{transform:translateY(-6px);box-shadow:0 16px 30px rgba(25,48,73,0.14);}
+  .avatar{
+    width:76px;height:76px;border-radius:50%;
+    margin:0 auto 14px;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-family:'Zen Maru Gothic';font-weight:900;font-size:1.5rem;
+    box-shadow:inset 0 -6px 10px rgba(0,0,0,0.12);
+  }
+  .member-card h4{margin:0 0 3px;font-size:0.98rem;color:var(--ink);}
+  .member-card .kana{font-size:0.68rem;color:var(--ink-soft);letter-spacing:0.03em;margin-bottom:8px;}
+  .member-card .role{
+    display:inline-block;font-size:0.68rem;font-weight:700;
+    background:var(--sky-light);color:var(--sky-deep);
+    padding:3px 10px;border-radius:999px;
+  }
+  .member-note{
+    text-align:center;color:var(--ink-soft);font-size:0.85rem;
+    margin-top:36px;line-height:1.8;
+  }
+
+  /* ---------- EDIT NOTE ---------- */
+  .howto{
+    background:var(--sky-light);
+    border-radius:var(--radius-lg);
+    padding:34px;
+  }
+  .howto h3{margin:0 0 14px;color:var(--sky-deep);font-size:1.2rem;}
+  .howto ol{margin:0;padding-left:1.2em;color:var(--ink-soft);line-height:2;font-size:0.92rem;}
+  .howto code{background:#fff;padding:2px 7px;border-radius:6px;font-size:0.85em;color:var(--sky-deep);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--sky-deep);
+    color:rgba(255,255,255,0.9);
+    padding:50px 6vw 30px;
+    text-align:center;
+  }
+  footer .disclaimer{
+    max-width:640px;margin:0 auto 22px;
+    font-size:0.82rem;line-height:1.9;
+    color:rgba(255,255,255,0.72);
+  }
+  footer .official-link{
+    display:inline-block;margin-bottom:22px;
+    color:#fff;font-weight:700;text-decoration:none;
+    border-bottom:2px solid var(--sun);
+  }
+  footer .fine{font-size:0.75rem;color:rgba(255,255,255,0.55);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand"><span class="dot"></span>僕青ふぁんくらぶ</div>
+  <div class="nav-links">
+    <a href="#about">グループについて</a>
+    <a href="#teams">青空組・雲組</a>
+    <a href="#members">メンバー</a>
+    <a href="#howto">使い方</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+  <div class="cloud c4"></div>
+  <span class="hero-badge">🌤️ 非公式ファンサイト</span>
+  <h1>僕が見たかった青空</h1>
+  <div class="kana">BOKU GA MITAKATTA AOZORA ／ 通称：僕青（ぼくあお）</div>
+  <p class="tagline">
+    2023年に結成された、乃木坂46の公式ライバルと位置づけられるアイドルグループ。
+    全国規模のオーディションを勝ち抜いたメンバーたちが、それぞれの「見たかった青空」を目指して活動しています。
+    このサイトは一人のファンが趣味で運営する非公式の応援ページです。
+  </p>
+  <div class="hero-stats">
+    <div class="stat-chip"><b>2023.6.15</b><span>結成日</span></div>
+    <div class="stat-chip"><b>23名</b><span>1期生メンバー</span></div>
+    <div class="stat-chip"><b>35,678名</b><span>オーディション応募総数</span></div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-copy">
+      <span class="eyebrow">ABOUT THE GROUP</span>
+      <h2>「青空について考える」から始まった物語</h2>
+      <p>
+        僕が見たかった青空は、<strong>秋元康氏の総合プロデュース</strong>により2023年6月15日に結成されたアイドルグループです。
+        同年2月から実施された全国規模のオーディションには3万5,678名が応募し、その中から選ばれた23名によってグループがスタートしました。
+      </p>
+      <p>
+        同年8月30日、1stシングル「青空について考える」でメジャーデビュー。<strong>乃木坂46の公式ライバル</strong>という立ち位置で活動しており、
+        デビューからわずか半年で音楽賞の新人賞を受賞するなど、大きな注目を集めています。
+      </p>
+      <p>
+        このページでは、僕青の魅力やメンバーの情報を、ファン目線でまとめています。最新情報は下記の公式サイトも合わせてチェックしてください。
+      </p>
+    </div>
+    <div class="sky-card">
+      <h3>🌈 グループ基本データ</h3>
+      <ul>
+        <li><span>結成</span><span>2023年6月15日</span></li>
+        <li><span>メジャーデビュー</span><span>2023年8月30日</span></li>
+        <li><span>デビュー曲</span><span>青空について考える</span></li>
+        <li><span>ポジション</span><span>乃木坂46 公式ライバル</span></li>
+        <li><span>初代センター</span><span>八木仁愛</span></li>
+        <li><span>初代リーダー</span><span>塩釜菜那</span></li>
+        <li><span>レーベル</span><span>エイベックス・エンタテインメント</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="teams">
+  <div class="section-head">
+    <span class="eyebrow">FORMATION</span>
+    <h2>青空組と雲組</h2>
+    <p>2ndシングル以降、作品ごとに選抜制が導入され、メンバーは楽曲ごとに「青空組」と「雲組」に分かれて活動しています。</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card sora">
+      <span class="team-badge">☀️ 青空組</span>
+      <h3>表題曲・センターステージ</h3>
+      <p>その作品の表題曲パフォーマンスやメディア出演を中心に活動する選抜メンバーのチーム。作品ごとにメンバーが入れ替わります。</p>
+    </div>
+    <div class="team-card kumo">
+      <span class="team-badge">☁️ 雲組</span>
+      <h3>定期公演で輝くもう一つの主役</h3>
+      <p>非選抜メンバーで構成されるチーム。青空をより美しく見せる存在として、定期公演を中心に活動しています。</p>
+    </div>
+  </div>
+</section>
+
+<section id="members">
+  <div class="section-head">
+    <span class="eyebrow">MEMBERS</span>
+    <h2>メンバー一覧（1期生 23名）</h2>
+    <p>五十音順で掲載しています。写真は本サイトでは掲載せず、カラーアバターで表示しています。プロフィール詳細はぜひ公式サイトで確認して、あなたの推しメン情報を書き込んでみてください。</p>
+  </div>
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">すべて</button>
+  </div>
+  <div class="member-grid" id="memberGrid"></div>
+  <p class="member-note">
+    ※ このリストは結成時の1期生メンバーをもとにしています。加入・卒業などの最新情報は公式サイトでご確認のうえ、下の「使い方」を参考に更新してください。
+  </p>
+</section>
+
+<section id="howto">
+  <div class="howto">
+    <h3>🛠️ このサイトの育て方（編集ガイド）</h3>
+    <ol>
+      <li>メンバーカードの内容は <code>index.html</code> 内の <code>memberData</code> という一覧を書き換えるだけで更新できます。</li>
+      <li>各メンバーには「role」欄があるので、パーソナルカラーや担当、キャッチフレーズなどお好きな情報を入れられます。</li>
+      <li>写真を追加したい場合は、ご自身で撮影・入手した画像を <code>avatar</code> の代わりに <code>&lt;img&gt;</code> タグとして差し込んでください（著作権にご注意を）。</li>
+      <li>ニュースやライブレポートを書き足したい場合は、新しく <code>&lt;section&gt;</code> を追加していく形でどんどん育てられます。</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <a class="official-link" href="https://bokuao.com/" target="_blank" rel="noopener">→ 僕が見たかった青空 公式サイトはこちら</a>
+  <p class="disclaimer">
+    本サイトは個人が運営する非公式のファンサイトです。僕が見たかった青空、Ligareaz Management、エイベックス・エンタテインメント等、
+    公式運営とは一切関係ありません。掲載内容の正確性については保証いたしかねますので、最新の正式な情報は必ず公式サイト・公式SNSをご確認ください。
+  </p>
+  <p class="fine">Fan-made site with love for 僕青 🌤️</p>
+</footer>
+
+<script>
+  // メンバーの一覧データ（五十音順・結成時1期生）
+  // avatar: 表示イニシャル / color: アバターの色 / role: 自由記入欄（推しポイントなどに書き換えてOK）
+  const memberData = [
+    {name:"青木 宙帆", kana:"あおき ゆうほ", role:"MEMBER", color:"#4FA8E0"},
+    {name:"秋田 莉杏", kana:"あきた りあん", role:"MEMBER", color:"#FF8FAB"},
+    {name:"安納 蒼衣", kana:"あんの あおい", role:"MEMBER", color:"#67C4A7"},
+    {name:"伊藤 ゆず", kana:"いとう ゆず", role:"MEMBER", color:"#FFC75F"},
+    {name:"今井 優希", kana:"いまい ゆき", role:"MEMBER", color:"#9B8CFF"},
+    {name:"岩本 理瑚", kana:"いわもと りこ", role:"MEMBER", color:"#4FA8E0"},
+    {name:"金澤 亜美", kana:"かなざわ あみ", role:"MEMBER", color:"#FF8FAB"},
+    {name:"木下 藍", kana:"きのした あい", role:"MEMBER", color:"#67C4A7"},
+    {name:"工藤 唯愛", kana:"くどう ゆあ", role:"MEMBER", color:"#FFC75F"},
+    {name:"塩釜 菜那", kana:"しおがま なな", role:"初代リーダー", color:"#1E6FB5"},
+    {name:"杉浦 英恋", kana:"すぎうら えれん", role:"MEMBER", color:"#4FA8E0"},
+    {name:"須永 心海", kana:"すなが みうな", role:"MEMBER", color:"#FF8FAB"},
+    {name:"西森 杏弥", kana:"にしもり あや", role:"MEMBER", color:"#67C4A7"},
+    {name:"萩原 心花", kana:"はぎわら ここか", role:"MEMBER", color:"#FFC75F"},
+    {name:"長谷川 稀未", kana:"はせがわ ひとみ", role:"MEMBER", color:"#9B8CFF"},
+    {name:"早﨑 すずき", kana:"はやさき すずき", role:"MEMBER", color:"#4FA8E0"},
+    {name:"宮腰 友里亜", kana:"みやこし ゆりあ", role:"MEMBER", color:"#FF8FAB"},
+    {name:"持永 真奈", kana:"もちなが まな", role:"MEMBER", color:"#67C4A7"},
+    {name:"八重樫 美伊咲", kana:"やえがし みいさ", role:"MEMBER", color:"#FFC75F"},
+    {name:"八木 仁愛", kana:"やぎ とあ", role:"初代センター", color:"#1E6FB5"},
+    {name:"柳堀 花怜", kana:"やなぎほり かれん", role:"MEMBER", color:"#9B8CFF"},
+    {name:"山口 結杏", kana:"やまぐち ゆあん", role:"MEMBER", color:"#4FA8E0"},
+    {name:"吉本 此那", kana:"よしもと ここな", role:"MEMBER", color:"#FF8FAB"},
+  ];
+
+  const grid = document.getElementById('memberGrid');
+  memberData.forEach(m=>{
+    const card = document.createElement('div');
+    card.className = 'member-card';
+    const initial = m.name.trim().charAt(0);
+    card.innerHTML = `
+      <div class="avatar" style="background:${m.color}">${initial}</div>
+      <h4>${m.name}</h4>
+      <div class="kana">${m.kana}</div>
+      <span class="role">${m.role}</span>
+    `;
+    grid.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
