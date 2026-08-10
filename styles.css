@@ -31,6 +31,48 @@ img{max-width:100%;display:block;}
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
 }
 
+/* ---------- INTRO OVERLAY (トップページ入場フェード) ---------- */
+.intro-overlay{
+  position:fixed;inset:0;z-index:999;
+  display:flex;align-items:center;justify-content:center;
+  background:#fff;
+  opacity:1;visibility:visible;
+  transition:opacity .7s ease, visibility .7s ease;
+}
+.intro-overlay.hide{opacity:0;visibility:hidden;pointer-events:none;}
+.intro-logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Zen Kaku Gothic New';font-weight:900;
+  font-size:1.3rem;letter-spacing:0.35em;
+  color:var(--sky-deep);
+  opacity:0;
+  animation:introReveal 1s ease forwards .15s;
+}
+.intro-logo .dot{width:10px;height:10px;border-radius:50%;background:var(--sky-mid);box-shadow:0 0 0 4px rgba(62,143,203,0.2);}
+@keyframes introReveal{
+  0%{opacity:0;transform:translateY(8px);}
+  100%{opacity:1;transform:translateY(0);}
+}
+@media (prefers-reduced-motion: reduce){
+  .intro-overlay{display:none;}
+}
+
+/* ---------- SIDE TEXT (トップページ ヒーローの縦文字) ---------- */
+.side-text{
+  position:absolute;
+  top:50%;
+  writing-mode:vertical-rl;
+  transform:translateY(-50%);
+  letter-spacing:0.5em;
+  font-size:0.7rem;
+  font-weight:700;
+  color:rgba(255,255,255,0.45);
+  z-index:2;
+}
+.side-text-left{left:4vw;}
+.side-text-right{right:4vw;}
+@media(max-width:820px){.side-text{display:none;}}
+
 /* ---------- NAV ---------- */
 .nav{
   position:sticky;top:0;z-index:50;
@@ -42,10 +84,35 @@ img{max-width:100%;display:block;}
 }
 .nav-brand{display:flex;align-items:center;gap:10px;font-family:'Zen Kaku Gothic New';font-weight:900;font-size:1.15rem;color:var(--sky-deep);text-decoration:none;}
 .nav-brand .dot{width:12px;height:12px;border-radius:50%;background:var(--sky-mid);box-shadow:0 0 0 4px rgba(62,143,203,0.2);}
+
+/* hamburger button (mobile only) */
+.nav-toggle{
+  display:flex;flex-direction:column;justify-content:center;gap:5px;
+  width:36px;height:36px;padding:0;
+  border:none;background:none;cursor:pointer;
+}
+.nav-toggle span{display:block;width:100%;height:2px;background:var(--sky-deep);border-radius:2px;transition:transform .2s,opacity .2s;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(min-width:760px){.nav-toggle{display:none;}}
+
 .nav-links{display:none;gap:26px;font-size:0.92rem;font-weight:500;}
 .nav-links a{text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;transition:border-color .2s;}
 .nav-links a:hover{border-color:var(--sky-mid);}
 .nav-links a.current{border-color:var(--sky-deep);color:var(--sky-deep);font-weight:700;}
+
+/* mobile dropdown: shown only when toggled open */
+@media(max-width:759px){
+  .nav-links.open{
+    display:flex;flex-direction:column;gap:0;
+    position:absolute;top:100%;left:0;right:0;
+    background:#fff;
+    border-bottom:1px solid rgba(30,111,181,0.12);
+    box-shadow:0 14px 26px rgba(21,90,150,0.12);
+  }
+  .nav-links.open a{padding:14px 6vw;border-bottom:1px solid var(--sky-light);}
+}
 @media(min-width:760px){.nav-links{display:flex;}}
 
 /* ---------- CLOUDS (トップページ・サブページのヘッダーで共用) ---------- */
@@ -101,6 +168,98 @@ img{max-width:100%;display:block;}
   color:rgba(255,255,255,0.88);
 }
 .page-head .cloud{opacity:0.5;}
+
+/* homepage: larger entrance hero, same header component/colors as subpages */
+.page-head.home{
+  min-height:64vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:110px 6vw 90px;
+}
+.hero-tag{
+  position:relative;z-index:2;
+  display:inline-block;
+  color:rgba(255,255,255,0.85);
+  font-size:0.8rem;
+  font-weight:700;
+  letter-spacing:0.5em;
+  margin-bottom:18px;
+}
+.page-head h1.stack-title{
+  font-size:clamp(3rem,11vw,7.5rem);
+  margin:0 0 16px;
+  text-shadow:
+    4px 4px 0 rgba(255,255,255,0.22),
+    8px 8px 0 rgba(255,255,255,0.10);
+}
+.page-head.home p{margin:0 auto;max-width:520px;}
+.hero-cta{
+  position:relative;z-index:2;
+  display:inline-block;
+  margin-top:26px;
+  padding:12px 30px;
+  border:1.5px solid rgba(255,255,255,0.7);
+  border-radius:999px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:0.88rem;
+  letter-spacing:0.04em;
+  transition:background .2s, color .2s;
+}
+.hero-cta:hover{background:#fff;color:var(--sky-deep);}
+
+/* ---------- HOME HERO OVERRIDE (白ベース＋タイポ勝負／超三元寄り) ---------- */
+.page-head.home{
+  background:#fff;
+  color:var(--ink);
+}
+.page-head.home .cloud{display:none;}
+.page-head.home .hero-tag{
+  color:var(--sky-deep);
+  font-size:0.72rem;
+  letter-spacing:0.6em;
+}
+.page-head.home h1.stack-title{
+  color:var(--ink);
+  text-shadow:none;
+  font-weight:900;
+  letter-spacing:-0.02em;
+  font-size:clamp(3.6rem,15vw,10.5rem);
+}
+.page-head.home p{color:var(--ink-soft);}
+.page-head.home .hero-cta{
+  border:none;
+  border-radius:0;
+  padding:6px 0;
+  color:var(--ink);
+  letter-spacing:0.08em;
+  border-bottom:1.5px solid var(--ink);
+}
+.page-head.home .hero-cta:hover{background:none;color:var(--sky-deep);border-color:var(--sky-deep);}
+.page-head.home .side-text{color:rgba(21,90,150,0.32);}
+
+/* フェード後、白背景のままでも「動いた」感を出すための出現アニメーション */
+.page-head.home .hero-tag,
+.page-head.home h1.stack-title,
+.page-head.home p,
+.page-head.home .hero-cta{
+  opacity:0;
+  animation:heroIn .9s ease forwards;
+}
+.page-head.home .hero-tag{animation-delay:.85s;}
+.page-head.home h1.stack-title{animation-delay:.98s;}
+.page-head.home p{animation-delay:1.12s;}
+.page-head.home .hero-cta{animation-delay:1.28s;}
+@keyframes heroIn{
+  from{opacity:0;transform:translateY(18px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@media (prefers-reduced-motion: reduce){
+  .page-head.home .hero-tag,
+  .page-head.home h1.stack-title,
+  .page-head.home p,
+  .page-head.home .hero-cta{opacity:1;animation:none;transform:none;}
+}
 
 /* ---------- SECTION GENERIC ---------- */
 section{padding:90px 6vw;max-width:1180px;margin:0 auto;}
