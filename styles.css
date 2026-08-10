@@ -208,6 +208,36 @@ img{max-width:100%;display:block;}
 }
 .hero-cta:hover{background:#fff;color:var(--sky-deep);}
 
+/* ---------- HOME HERO OVERRIDE (白ベース＋タイポ勝負／超三元寄り) ---------- */
+.page-head.home{
+  background:#fff;
+  color:var(--ink);
+}
+.page-head.home .cloud{display:none;}
+.page-head.home .hero-tag{
+  color:var(--sky-deep);
+  font-size:0.72rem;
+  letter-spacing:0.6em;
+}
+.page-head.home h1.stack-title{
+  color:var(--ink);
+  text-shadow:none;
+  font-weight:900;
+  letter-spacing:-0.02em;
+  font-size:clamp(3.6rem,15vw,10.5rem);
+}
+.page-head.home p{color:var(--ink-soft);}
+.page-head.home .hero-cta{
+  border:none;
+  border-radius:0;
+  padding:6px 0;
+  color:var(--ink);
+  letter-spacing:0.08em;
+  border-bottom:1.5px solid var(--ink);
+}
+.page-head.home .hero-cta:hover{background:none;color:var(--sky-deep);border-color:var(--sky-deep);}
+.page-head.home .side-text{color:rgba(21,90,150,0.32);}
+
 /* ---------- SECTION GENERIC ---------- */
 section{padding:90px 6vw;max-width:1180px;margin:0 auto;}
 .eyebrow{
