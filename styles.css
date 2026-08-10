@@ -1,0 +1,348 @@
+:root{
+  --sky-deep:#155A96;
+  --sky-mid:#3E8FCB;
+  --sky-pale:#7FB8E0;
+  --sky-light:#DCEBF7;
+  --sky-faint:#F2F7FC;
+  --cloud:#FFFFFF;
+  --ink:#16283C;
+  --ink-soft:#5A7387;
+  --radius-lg:16px;
+  --radius-md:10px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Noto Sans JP',sans-serif;
+  color:var(--ink);
+  background:var(--cloud);
+  overflow-x:hidden;
+}
+h1,h2,h3,.display{
+  font-family:'Zen Kaku Gothic New',sans-serif;
+  font-weight:900;
+}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+:focus-visible{outline:3px solid var(--sky-deep);outline-offset:3px;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 6vw;
+  background:rgba(255,255,255,0.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(30,111,181,0.12);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:'Zen Kaku Gothic New';font-weight:900;font-size:1.15rem;color:var(--sky-deep);text-decoration:none;}
+.nav-brand .dot{width:12px;height:12px;border-radius:50%;background:var(--sky-mid);box-shadow:0 0 0 4px rgba(62,143,203,0.2);}
+.nav-links{display:none;gap:26px;font-size:0.92rem;font-weight:500;}
+.nav-links a{text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;transition:border-color .2s;}
+.nav-links a:hover{border-color:var(--sky-mid);}
+.nav-links a.current{border-color:var(--sky-deep);color:var(--sky-deep);font-weight:700;}
+@media(min-width:760px){.nav-links{display:flex;}}
+
+/* ---------- HERO (トップページ用の大きいヒーロー) ---------- */
+.hero{
+  position:relative;
+  min-height:92vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  padding:120px 6vw 100px;
+  background:linear-gradient(180deg,var(--sky-deep) 0%, var(--sky-mid) 45%, var(--sky-light) 100%);
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:-2px;height:120px;
+  background:linear-gradient(180deg, rgba(190,227,250,0) 0%, var(--cloud) 100%);
+  pointer-events:none;
+}
+.cloud{
+  position:absolute;
+  background:#fff;
+  border-radius:100px;
+  opacity:0.85;
+  filter:blur(0.3px);
+}
+.cloud::before,.cloud::after{
+  content:"";
+  position:absolute;
+  background:#fff;
+  border-radius:50%;
+}
+.c1{width:180px;height:56px;top:14%;left:-10%;animation:drift 46s linear infinite;}
+.c1::before{width:90px;height:90px;top:-45px;left:20px;}
+.c1::after{width:70px;height:70px;top:-32px;left:90px;}
+.c2{width:130px;height:42px;top:30%;left:60%;animation:drift 60s linear infinite;animation-delay:-10s;}
+.c2::before{width:64px;height:64px;top:-30px;left:14px;}
+.c2::after{width:50px;height:50px;top:-22px;left:66px;}
+.c3{width:220px;height:64px;top:60%;left:-20%;animation:drift 70s linear infinite;animation-delay:-25s;opacity:0.65;}
+.c3::before{width:100px;height:100px;top:-50px;left:30px;}
+.c3::after{width:80px;height:80px;top:-36px;left:120px;}
+.c4{width:150px;height:46px;top:75%;left:70%;animation:drift 54s linear infinite;animation-delay:-5s;opacity:0.7;}
+.c4::before{width:70px;height:70px;top:-34px;left:16px;}
+.c4::after{width:56px;height:56px;top:-24px;left:76px;}
+@keyframes drift{
+  from{transform:translateX(0);}
+  to{transform:translateX(140vw);}
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.22);
+  border:1px solid rgba(255,255,255,0.5);
+  color:#fff;
+  padding:8px 18px;border-radius:999px;
+  font-size:0.82rem;font-weight:700;letter-spacing:0.05em;
+  margin-bottom:26px;
+  position:relative;z-index:2;
+}
+.hero h1{
+  position:relative;z-index:2;
+  color:#fff;
+  font-size:clamp(2.4rem,7vw,5.2rem);
+  line-height:1.15;
+  margin:0 0 6px;
+  text-shadow:0 6px 30px rgba(15,60,110,0.35);
+}
+.hero .kana{
+  position:relative;z-index:2;
+  color:rgba(255,255,255,0.85);
+  font-size:1rem;
+  letter-spacing:0.3em;
+  margin-bottom:22px;
+}
+.hero p.tagline{
+  position:relative;z-index:2;
+  color:#fff;
+  max-width:620px;
+  font-size:1.05rem;
+  line-height:1.9;
+  margin:0 auto 34px;
+  text-shadow:0 2px 14px rgba(15,60,110,0.3);
+}
+.hero-stats{
+  position:relative;z-index:2;
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:center;
+}
+.stat-chip{
+  background:rgba(255,255,255,0.16);
+  border:1px solid rgba(255,255,255,0.4);
+  border-radius:16px;
+  padding:14px 22px;
+  color:#fff;
+  min-width:120px;
+}
+.stat-chip b{display:block;font-family:'Zen Kaku Gothic New';font-size:1.5rem;}
+.stat-chip span{font-size:0.78rem;opacity:0.85;}
+
+/* ---------- PAGE HEAD (サブページ用の小さいヘッダー) ---------- */
+.page-head{
+  position:relative;
+  padding:76px 6vw 56px;
+  text-align:center;
+  background:linear-gradient(180deg,var(--sky-deep) 0%, var(--sky-mid) 100%);
+  color:#fff;
+  overflow:hidden;
+}
+.page-head h1{
+  position:relative;z-index:2;
+  font-size:clamp(1.9rem,4.4vw,2.8rem);
+  margin:0 0 10px;
+  text-shadow:0 4px 20px rgba(15,60,110,0.3);
+}
+.page-head p{
+  position:relative;z-index:2;
+  max-width:520px;margin:0 auto;
+  font-size:0.96rem;line-height:1.8;
+  color:rgba(255,255,255,0.88);
+}
+.page-head .cloud{opacity:0.5;}
+
+/* ---------- SECTION GENERIC ---------- */
+section{padding:90px 6vw;max-width:1180px;margin:0 auto;}
+.eyebrow{
+  display:inline-block;
+  color:var(--sky-deep);
+  background:var(--sky-light);
+  padding:5px 14px;border-radius:999px;
+  font-size:0.78rem;font-weight:700;letter-spacing:0.08em;
+  margin-bottom:14px;
+}
+.section-head{max-width:640px;margin-bottom:48px;}
+.section-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin:0 0 14px;color:var(--sky-deep);}
+.section-head p{color:var(--ink-soft);line-height:1.9;font-size:0.98rem;margin:0;}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1fr;gap:36px;}
+@media(min-width:860px){.about-grid{grid-template-columns:1.1fr 0.9fr;align-items:center;}}
+.about-copy p{line-height:2;color:var(--ink-soft);margin:0 0 16px;font-size:0.98rem;}
+.about-copy strong{color:var(--sky-deep);}
+.sky-card{
+  background:linear-gradient(160deg,var(--sky-mid),var(--sky-deep));
+  border-radius:var(--radius-lg);
+  padding:34px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.sky-card h3{margin:0 0 18px;font-size:1.25rem;}
+.sky-card ul{margin:0;padding:0;list-style:none;}
+.sky-card li{
+  display:flex;justify-content:space-between;gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,0.22);
+  font-size:0.92rem;
+}
+.sky-card li:last-child{border-bottom:none;}
+.sky-card li span:first-child{opacity:0.75;}
+.sky-card li span:last-child{font-weight:700;text-align:right;}
+
+/* ---------- GROUPS (青空組/雲組) ---------- */
+.team-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+@media(min-width:700px){.team-grid{grid-template-columns:1fr 1fr;}}
+.team-card{
+  border-radius:var(--radius-lg);
+  padding:32px;
+  position:relative;
+  overflow:hidden;
+}
+.team-card.sora{background:var(--sky-deep);}
+.team-card.sora h3, .team-card.sora .team-badge{color:#fff;}
+.team-card.sora .team-badge{background:rgba(255,255,255,0.16);}
+.team-card.sora p{color:rgba(255,255,255,0.82);}
+.team-card.kumo{background:var(--sky-faint);border:1px solid var(--sky-light);}
+.team-card h3{margin:0 0 10px;font-size:1.4rem;color:var(--sky-deep);}
+.team-card p{color:var(--ink-soft);line-height:1.85;margin:0;font-size:0.94rem;}
+.team-badge{
+  display:inline-block;font-size:0.72rem;font-weight:700;
+  background:rgba(30,111,181,0.1);color:var(--sky-deep);
+  padding:4px 12px;border-radius:999px;margin-bottom:12px;
+}
+
+/* ---------- HOME: quick-link cards ---------- */
+.link-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+@media(min-width:700px){.link-grid{grid-template-columns:repeat(3,1fr);}}
+.link-card{
+  display:block;text-decoration:none;
+  background:#fff;
+  border:1px solid var(--sky-light);
+  border-radius:var(--radius-lg);
+  padding:28px;
+  transition:transform .2s, box-shadow .2s, border-color .2s;
+}
+.link-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(21,90,150,0.12);border-color:var(--sky-pale);}
+.link-card .icon{font-size:1.6rem;margin-bottom:12px;}
+.link-card h3{margin:0 0 8px;font-size:1.1rem;color:var(--sky-deep);}
+.link-card p{margin:0;color:var(--ink-soft);font-size:0.88rem;line-height:1.7;}
+.link-card .go{display:inline-block;margin-top:14px;font-size:0.82rem;font-weight:700;color:var(--sky-mid);}
+
+/* ---------- MEMBERS ---------- */
+.filter-bar{
+  display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;
+}
+.filter-btn{
+  border:1.5px solid var(--sky-light);
+  background:#fff;color:var(--sky-deep);
+  padding:8px 16px;border-radius:999px;
+  font-size:0.85rem;font-weight:700;cursor:pointer;
+  font-family:inherit;
+  transition:all .2s;
+}
+.filter-btn:hover,.filter-btn.active{
+  background:var(--sky-deep);border-color:var(--sky-deep);color:#fff;
+}
+.member-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:18px;
+}
+.member-card{
+  background:#fff;
+  border-radius:var(--radius-md);
+  padding:18px 14px 20px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(25,48,73,0.06);
+  border:1px solid rgba(30,111,181,0.08);
+  transition:transform .25s, box-shadow .25s;
+  cursor:default;
+}
+.member-card:hover{transform:translateY(-6px);box-shadow:0 16px 30px rgba(25,48,73,0.14);}
+.avatar{
+  width:76px;height:76px;border-radius:50%;
+  margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-family:'Zen Kaku Gothic New';font-weight:900;font-size:1.5rem;
+  box-shadow:inset 0 -6px 10px rgba(0,0,0,0.12);
+}
+.member-card h4{margin:0 0 3px;font-size:0.98rem;color:var(--ink);}
+.member-card .kana{font-size:0.68rem;color:var(--ink-soft);letter-spacing:0.03em;margin-bottom:8px;}
+.member-card .role{
+  display:inline-block;font-size:0.68rem;font-weight:700;
+  background:var(--sky-light);color:var(--sky-deep);
+  padding:3px 10px;border-radius:999px;
+}
+.member-note{
+  text-align:center;color:var(--ink-soft);font-size:0.85rem;
+  margin-top:36px;line-height:1.8;
+}
+
+/* ---------- EDIT NOTE ---------- */
+.howto{
+  background:var(--sky-light);
+  border-radius:var(--radius-lg);
+  padding:34px;
+}
+.howto h3{margin:0 0 14px;color:var(--sky-deep);font-size:1.2rem;}
+.howto ol{margin:0;padding-left:1.2em;color:var(--ink-soft);line-height:2;font-size:0.92rem;}
+.howto code{background:#fff;padding:2px 7px;border-radius:6px;font-size:0.85em;color:var(--sky-deep);}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:20px;max-width:640px;margin:0 auto;}
+@media(min-width:600px){.contact-grid{grid-template-columns:1fr 1fr;}}
+.contact-card{
+  background:#fff;
+  border:1px solid var(--sky-light);
+  border-radius:var(--radius-lg);
+  padding:28px;
+  text-align:center;
+  text-decoration:none;
+  transition:transform .2s, box-shadow .2s;
+}
+.contact-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(21,90,150,0.12);}
+.contact-card .icon{font-size:1.8rem;margin-bottom:12px;}
+.contact-card h3{margin:0 0 6px;font-size:1rem;color:var(--sky-deep);}
+.contact-card span{font-size:0.85rem;color:var(--ink-soft);word-break:break-all;}
+.contact-note{
+  max-width:560px;margin:36px auto 0;
+  text-align:center;color:var(--ink-soft);
+  font-size:0.85rem;line-height:1.9;
+  background:var(--sky-faint);
+  border-radius:var(--radius-md);
+  padding:22px;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  background:var(--sky-deep);
+  color:rgba(255,255,255,0.9);
+  padding:50px 6vw 30px;
+  text-align:center;
+}
+footer .disclaimer{
+  max-width:640px;margin:0 auto 22px;
+  font-size:0.82rem;line-height:1.9;
+  color:rgba(255,255,255,0.72);
+}
+footer .official-link{
+  display:inline-block;margin-bottom:22px;
+  color:#fff;font-weight:700;text-decoration:none;
+  border-bottom:2px solid var(--sky-pale);
+}
+footer .fine{font-size:0.75rem;color:rgba(255,255,255,0.55);}
