@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>お問い合わせ ｜ Overload</title>
+<title>スケジュール ｜ Overload</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,35 +18,36 @@
     <a href="index.html">トップページ</a>
     <a href="about.html">グループについて</a>
     <a href="members.html">メンバー</a>
-    <a href="schedule.html">スケジュール</a>
-    <a href="contact.html" class="current">お問い合わせ</a>
+    <a href="schedule.html" class="current">スケジュール</a>
+    <a href="contact.html">お問い合わせ</a>
   </div>
 </nav>
 
 <header class="page-head">
-  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
   <div class="cloud c4"></div>
-  <h1>お問い合わせ</h1>
-  <p>このサイトの運営者への連絡先です。誤字脱字の指摘や情報提供など、お気軽にどうぞ。</p>
+  <h1>スケジュール</h1>
+  <p>ライブ・配信・グッズ販売など、僕青に関する予定を日付順でまとめています。</p>
 </header>
 
-<section id="contact">
-  <div class="contact-grid">
-    <a class="contact-card" href="mailto:your-email@example.com">
-      <div class="icon">✉️</div>
-      <h3>メール</h3>
-      <span>your-email@example.com</span>
-    </a>
-    <a class="contact-card" href="https://x.com/your_account" target="_blank" rel="noopener">
-      <div class="icon">🐦</div>
-      <h3>X（旧Twitter）</h3>
-      <span>@your_account</span>
-    </a>
+<section id="schedule">
+  <div class="section-head">
+    <span class="eyebrow">SCHEDULE</span>
+    <h2>予定一覧</h2>
+    <p>最新情報は必ず公式サイト・公式SNSでもご確認ください。</p>
   </div>
-  <p class="contact-note">
-    ※ 上記のメールアドレス・SNSリンクはサンプルです。<code>contact.html</code> 内のリンクを、あなた自身の連絡先に書き換えてください。<br>
-    このページはグループ公式への問い合わせ窓口ではありません。公式へのお問い合わせは公式サイトをご利用ください。
-  </p>
+  <div class="schedule-list" id="scheduleList"></div>
+</section>
+
+<section id="howto">
+  <div class="howto">
+    <h3>🛠️ このページの育て方（編集ガイド）</h3>
+    <ol>
+      <li>予定は <code>schedule.csv</code> を編集するだけで更新できます（<code>date, time, title, url</code> の4列）。</li>
+      <li><code>time</code> と <code>url</code> は空欄でも構いません。</li>
+      <li>トップページの「本日の予定」は、この <code>schedule.csv</code> の中から今日の日付の行だけを自動で拾って表示しています。</li>
+    </ol>
+  </div>
 </section>
 
 <footer>
@@ -58,5 +59,6 @@
   <p class="fine">Fan-made site with love for 僕青 🌤️</p>
 </footer>
 
+<script src="schedule.js"></script>
 </body>
 </html>
