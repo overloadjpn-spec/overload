@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>メンバー ｜ 僕青ふぁんくらぶ</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html"><span class="dot"></span>僕青ふぁんくらぶ</a>
+  <div class="nav-links">
+    <a href="index.html">トップページ</a>
+    <a href="about.html">グループについて</a>
+    <a href="members.html" class="current">メンバー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="cloud c2"></div>
+  <div class="cloud c4"></div>
+  <h1>メンバー一覧</h1>
+  <p>結成時の1期生23名を五十音順でまとめています。</p>
+</header>
+
+<section id="members">
+  <div class="section-head">
+    <span class="eyebrow">MEMBERS</span>
+    <h2>メンバー一覧（1期生 23名）</h2>
+    <p>写真は本サイトでは掲載せず、カラーアバターで表示しています。プロフィール詳細はぜひ公式サイトで確認して、あなたの推しメン情報を書き込んでみてください。</p>
+  </div>
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">すべて</button>
+  </div>
+  <div class="member-grid" id="memberGrid"></div>
+  <p class="member-note">
+    ※ このリストは結成時の1期生メンバーをもとにしています。加入・卒業などの最新情報は公式サイトでご確認のうえ、下の「使い方」を参考に更新してください。
+  </p>
+</section>
+
+<section id="howto">
+  <div class="howto">
+    <h3>🛠️ このページの育て方（編集ガイド）</h3>
+    <ol>
+      <li>メンバーカードの内容は <code>members.js</code> 内の <code>memberData</code> という一覧を書き換えるだけで更新できます。</li>
+      <li>各メンバーには「role」欄があるので、パーソナルカラーや担当、キャッチフレーズなどお好きな情報を入れられます。</li>
+      <li>写真を追加したい場合は、ご自身で撮影・入手した画像を <code>avatar</code> の代わりに <code>&lt;img&gt;</code> タグとして差し込んでください（著作権にご注意を）。</li>
+      <li>ニュースやライブレポートを書き足したい場合は、新しく <code>&lt;section&gt;</code> を追加していく形でどんどん育てられます。</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <a class="official-link" href="https://bokuao.com/" target="_blank" rel="noopener">→ 僕が見たかった青空 公式サイトはこちら</a>
+  <p class="disclaimer">
+    本サイトは個人が運営する非公式のファンサイトです。僕が見たかった青空、Ligareaz Management、エイベックス・エンタテインメント等、
+    公式運営とは一切関係ありません。掲載内容の正確性については保証いたしかねますので、最新の正式な情報は必ず公式サイト・公式SNSをご確認ください。
+  </p>
+  <p class="fine">Fan-made site with love for 僕青 🌤️</p>
+</footer>
+
+<script src="members.js"></script>
+</body>
+</html>
