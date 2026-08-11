@@ -13,7 +13,7 @@
 <body>
 
 <div id="introOverlay" class="intro-overlay" aria-hidden="true">
-  <span class="intro-logo"><span class="dot"></span>Overload</span>
+  <span class="intro-logo rainbow"><span class="dot"></span>Overload</span>
 </div>
 
 <nav class="nav">
@@ -22,74 +22,87 @@
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="navLinks">
-    <a href="index.html" class="current">トップページ</a>
-    <a href="about.html">グループについて</a>
-    <a href="members.html">メンバー</a>
-    <a href="schedule.html">スケジュール</a>
-    <a href="contact.html">お問い合わせ</a>
+    <a href="about.html" class="nav-swap nav-group"><span class="nav-en">GROUP</span><span class="nav-ja">グループを知る</span></a>
+    <a href="members.html" class="nav-swap"><span class="nav-en">MEMBERS</span><span class="nav-ja">メンバーを知る</span></a>
+    <a href="schedule.html" class="nav-swap nav-schedule"><span class="nav-en">SCHEDULE</span><span class="nav-ja">予定を知る</span></a>
+    <a href="team.html" class="nav-swap nav-team"><span class="nav-en">TEAM</span><span class="nav-ja">運営を知る</span></a>
   </div>
 </nav>
 
-<header class="page-head home">
-  <div class="cloud c1"></div>
-  <div class="cloud c3"></div>
-  <span class="side-text side-text-left" aria-hidden="true">ENJOY YOUR SKY</span>
-  <span class="side-text side-text-right" aria-hidden="true">僕が見たかった青空</span>
-  <span class="hero-tag">ENJOY YOUR SKY</span>
-  <h1 class="stack-title">Overload</h1>
-  <p>僕が見たかった青空 非公式ファンサイト。メンバー情報とスケジュールをまとめています。</p>
-  <a class="hero-cta" href="about.html">Learn More →</a>
+<header class="page-head home photo-hero">
+  <div class="photo-hero-img" style="background-image:url('hero.jpg');" aria-hidden="true"></div>
+  <div class="photo-hero-content">
+    <span class="hero-tag">ENJOY YOUR SKY</span>
+    <h1 class="stack-title">Overload</h1>
+    <p>僕が見たかった青空 非公式ファンサイト</p>
+  </div>
+  <svg class="wave-shape" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,64 C240,120 480,0 720,40 C960,80 1200,10 1440,56 L1440,120 L0,120 Z"></path>
+  </svg>
+  <div class="scroll-cue" aria-hidden="true">
+    <span class="scroll-cue-line"></span>
+    <span class="scroll-cue-text">SCROLL</span>
+  </div>
+
 </header>
 
 <section id="today">
   <div class="today-ring" aria-hidden="true"></div>
   <div class="today-ring-sm" aria-hidden="true"></div>
   <div class="today-inner">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <span class="today-tag" id="todayTag" aria-hidden="true"></span>
       <span class="eyebrow">TODAY</span>
-      <h2>本日の予定</h2>
+      <h2><span class="marker">本日</span>の予定</h2>
       <p>本日分の予定のみを表示しています。全ての予定は<a href="schedule.html">スケジュールページ</a>でご確認ください。</p>
     </div>
-    <div class="schedule-list" id="todayList"></div>
+    <div class="schedule-list" id="todayList" data-reveal></div>
   </div>
 </section>
 
 <section id="quicklinks">
-  <div class="section-head">
+  <div class="section-head" data-reveal>
     <span class="eyebrow">EXPLORE</span>
     <h2>このサイトについて</h2>
     <p>グループの紹介、メンバー一覧、スケジュール、お問い合わせ先をそれぞれのページにまとめています。</p>
   </div>
-  <div class="link-grid">
-    <a class="link-card" href="about.html">
-      <div class="icon">☀️</div>
-      <h3>グループについて</h3>
-      <p>結成の経緯やデビューまでの流れ、青空組・雲組の仕組みを紹介しています。</p>
-      <span class="go">詳しく見る →</span>
+  <div class="index-list">
+    <a class="index-row" href="about.html" data-reveal>
+      <span class="index-num">01</span>
+      <span class="index-body">
+        <span class="index-title">グループについて</span>
+        <span class="index-desc">結成の経緯やデビューまでの流れ、青空組・雲組の仕組みを紹介しています。</span>
+      </span>
+      <span class="index-arrow">→</span>
     </a>
-    <a class="link-card" href="members.html">
-      <div class="icon">👥</div>
-      <h3>メンバー一覧</h3>
-      <p>1期生23名を五十音順でまとめています。あなたの推しメン情報もぜひ書き込んで。</p>
-      <span class="go">メンバーを見る →</span>
+    <a class="index-row" href="members.html" data-reveal>
+      <span class="index-num">02</span>
+      <span class="index-body">
+        <span class="index-title">メンバー一覧</span>
+        <span class="index-desc">1期生23名を五十音順でまとめています。あなたの推しメン情報もぜひ書き込んで。</span>
+      </span>
+      <span class="index-arrow">→</span>
     </a>
-    <a class="link-card" href="schedule.html">
-      <div class="icon">🗓️</div>
-      <h3>スケジュール</h3>
-      <p>ライブ・配信・グッズ販売など、僕青に関する予定を日付順でまとめています。</p>
-      <span class="go">予定を見る →</span>
+    <a class="index-row" href="schedule.html" data-reveal>
+      <span class="index-num">03</span>
+      <span class="index-body">
+        <span class="index-title">スケジュール</span>
+        <span class="index-desc">ライブ・配信・グッズ販売など、僕青に関する予定を日付順でまとめています。</span>
+      </span>
+      <span class="index-arrow">→</span>
     </a>
-    <a class="link-card" href="contact.html">
-      <div class="icon">✉️</div>
-      <h3>お問い合わせ</h3>
-      <p>このサイトの運営者への連絡先やSNSリンクをまとめています。</p>
-      <span class="go">連絡先を見る →</span>
+    <a class="index-row" href="team.html" data-reveal>
+      <span class="index-num">04</span>
+      <span class="index-body">
+        <span class="index-title">TEAM</span>
+        <span class="index-desc">更新情報(note)と、このサイトの運営者への連絡先をまとめています。</span>
+      </span>
+      <span class="index-arrow">→</span>
     </a>
   </div>
 </section>
 
-<footer>
+<footer data-reveal>
   <a class="official-link" href="https://bokuao.com/" target="_blank" rel="noopener">→ 僕が見たかった青空 公式サイトはこちら</a>
   <p class="disclaimer">
     本サイトは個人が運営する非公式のファンサイトです。僕が見たかった青空、Ligareaz Management、エイベックス・エンタテインメント等、
@@ -101,5 +114,6 @@
 <script src="schedule.js"></script>
 <script src="nav.js"></script>
 <script src="intro.js"></script>
+<script src="reveal.js"></script>
 </body>
 </html>
