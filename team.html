@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEAM ｜ Overload</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <span class="dot"></span>
+    <span class="nav-brand-text">
+      <span class="nav-brand-sub">僕が見たかった青空 非公式ファンサイト</span>
+      <span class="nav-brand-main">Overload</span>
+    </span>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="about.html" class="nav-swap nav-group"><span class="nav-en">GROUP</span><span class="nav-ja">グループを知る</span></a>
+    <a href="members.html" class="nav-swap"><span class="nav-en">MEMBERS</span><span class="nav-ja">メンバーを知る</span></a>
+    <a href="schedule.html" class="nav-swap nav-schedule"><span class="nav-en">SCHEDULE</span><span class="nav-ja">予定を知る</span></a>
+    <a href="team.html" class="nav-swap nav-team current"><span class="nav-en">TEAM</span><span class="nav-ja">運営を知る</span></a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="cloud c1"></div>
+  <div class="cloud c4"></div>
+  <h1>TEAM</h1>
+  <p>このサイトの更新情報と、運営者への連絡先をまとめています。</p>
+</header>
+
+<section id="news">
+  <div class="section-head">
+    <span class="eyebrow">NOTE</span>
+    <h2>更新情報</h2>
+    <p>note で書いた記事を、公開後にここへ埋め込んでいきます。現在は準備中です。</p>
+  </div>
+
+  <!--
+    ここに note の「サイトに貼る」機能で発行された埋め込みコード(iframe)を
+    1記事ごとに .note-embed-slot で囲んで追加してください。
+
+    例:
+    <div class="note-embed-slot">
+      <iframe class="note-embed" src="https://note.com/embed/notes/xxxxxxxxxxxx" ...></iframe>
+    </div>
+  -->
+  <div class="note-grid">
+    <div class="note-embed-slot placeholder">
+      <span class="placeholder-label">note 記事 準備中</span>
+    </div>
+    <div class="note-embed-slot placeholder">
+      <span class="placeholder-label">note 記事 準備中</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-head">
+    <span class="eyebrow">CONTACT</span>
+    <h2>お問い合わせ</h2>
+    <p>誤字脱字の指摘や情報提供など、お気軽にどうぞ。</p>
+  </div>
+  <div class="contact-grid">
+    <a class="contact-card" href="mailto:your-email@example.com">
+      <div class="icon">✉️</div>
+      <h3>メール</h3>
+      <span>your-email@example.com</span>
+    </a>
+    <a class="contact-card" href="https://x.com/your_account" target="_blank" rel="noopener">
+      <div class="icon">🐦</div>
+      <h3>X（旧Twitter）</h3>
+      <span>@your_account</span>
+    </a>
+  </div>
+  <p class="contact-note">
+    ※ 上記のメールアドレス・SNSリンクはサンプルです。<code>team.html</code> 内のリンクを、あなた自身の連絡先に書き換えてください。<br>
+    このページはグループ公式への問い合わせ窓口ではありません。公式へのお問い合わせは公式サイトをご利用ください。
+  </p>
+</section>
+
+<footer>
+  <a class="official-link" href="https://bokuao.com/" target="_blank" rel="noopener">→ 僕が見たかった青空 公式サイトはこちら</a>
+  <p class="disclaimer">
+    本サイトは個人が運営する非公式のファンサイトです。僕が見たかった青空、Ligareaz Management、エイベックス・エンタテインメント等、
+    公式運営とは一切関係ありません。掲載内容の正確性については保証いたしかねますので、最新の正式な情報は必ず公式サイト・公式SNSをご確認ください。
+  </p>
+  <p class="fine">Fan-made site with love for 僕青 🌤️</p>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
