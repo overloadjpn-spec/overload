@@ -13,16 +13,21 @@
 <body>
 
 <nav class="nav">
-  <a class="nav-brand" href="index.html"><span class="dot"></span>Overload</a>
+  <a class="nav-brand" href="index.html">
+    <span class="dot"></span>
+    <span class="nav-brand-text">
+      <span class="nav-brand-sub">僕が見たかった青空 非公式ファンサイト</span>
+      <span class="nav-brand-main">Overload</span>
+    </span>
+  </a>
   <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="navLinks">
-    <a href="index.html">トップページ</a>
-    <a href="about.html">グループについて</a>
-    <a href="members.html" class="current">メンバー</a>
-    <a href="schedule.html">スケジュール</a>
-    <a href="contact.html">お問い合わせ</a>
+    <a href="about.html" class="nav-swap nav-group"><span class="nav-en">GROUP</span><span class="nav-ja">グループを知る</span></a>
+    <a href="members.html" class="nav-swap current"><span class="nav-en">MEMBERS</span><span class="nav-ja">メンバーを知る</span></a>
+    <a href="schedule.html" class="nav-swap nav-schedule"><span class="nav-en">SCHEDULE</span><span class="nav-ja">予定を知る</span></a>
+    <a href="team.html" class="nav-swap nav-team"><span class="nav-en">TEAM</span><span class="nav-ja">運営を知る</span></a>
   </div>
 </nav>
 
@@ -32,6 +37,10 @@
   <h1>メンバー一覧</h1>
   <p>結成時の1期生23名を五十音順でまとめています。</p>
 </header>
+
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
 
 <section id="members">
   <div class="section-head">
